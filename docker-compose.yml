@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    image: fizzy
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    env_file:
+      - .env
+    volumes:
+      - fizzy_storage:/rails/storage
+
+volumes:
+  fizzy_storage:

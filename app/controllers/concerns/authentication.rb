@@ -42,7 +42,15 @@ module Authentication
     end
 
     def require_authentication
-      resume_session || authenticate_by_bearer_token || request_authentication
+      resume_session || authenticate_by_bearer_token || auto_login || request_authentication
+    end
+
+    def auto_login
+      if (email = ENV["AUTO_LOGIN_EMAIL"]).present?
+        if identity = Identity.find_by(email_address: email)
+          start_new_session_for(identity)
+        end
+      end
     end
 
     def resume_session

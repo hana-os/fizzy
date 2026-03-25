@@ -47,10 +47,22 @@ export default class extends Controller {
     await this.#restoreColumnsDisablingTransitions()
   }
 
-  focusOnColumn({ target }) {
-    if (this.#isDesktop && this.#isCollapsed(target)) {
-      this.#collapseAllExcept(target)
-      this.#expand({ column: target })
+  focusOnColumn(event) {
+    const column = event.currentTarget
+    if (this.#isDesktop && this.#isCollapsed(column)) {
+      // Prevent native focus + auto-scroll (uses pre-reflow geometry, causes jump)
+      event.preventDefault()
+
+      this.#collapseAllExcept(column)
+      this.#expand({ column })
+
+      // Double rAF: wait for grid reflow to fully complete before scrolling
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          column.focus({ preventScroll: true })
+          column.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" })
+        })
+      })
     }
   }
 

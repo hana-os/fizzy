@@ -3,7 +3,7 @@
     card_hotkeys_disabled: true,
     collapsible_columns_target: "column",
     drag_and_strum_target: "container",
-    action: "focus->collapsible-columns#focusOnColumn"
+    action: "mousedown->collapsible-columns#focusOnColumn"
   } do %>
   <header class="cards__header">
     <%= render "boards/show/expander", title: "Not Now", count: board.cards.postponed.count, column_id: "not-now" %>

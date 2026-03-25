@@ -14,12 +14,12 @@ class Color
   COLORS = {
     "Blue" => "var(--color-card-default)",
     "Gray" => "var(--color-card-1)",
-    "Tan" => "var(--color-card-2)",
-    "Yellow" => "var(--color-card-3)",
-    "Lime" => "var(--color-card-4)",
-    "Aqua" => "var(--color-card-5)",
-    "Violet" => "var(--color-card-6)",
-    "Purple" => "var(--color-card-7)",
+    "Red" => "var(--color-card-2)",
+    "Peach" => "var(--color-card-3)",
+    "Yellow" => "var(--color-card-4)",
+    "Green" => "var(--color-card-5)",
+    "Teal" => "var(--color-card-6)",
+    "Mauve" => "var(--color-card-7)",
     "Pink" => "var(--color-card-8)"
   }.collect { |name, value| new(name, value) }.freeze
 end

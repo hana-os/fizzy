@@ -3,7 +3,7 @@
     card_hotkeys_disabled: true,
     drag_and_strum_target: "container",
     collapsible_columns_target: "column",
-    action: "focus->collapsible-columns#focusOnColumn"
+    action: "mousedown->collapsible-columns#focusOnColumn"
   } do %>
   <header class="cards__header">
     <%= render "boards/show/expander", title: "Done", count: board.cards.closed.count, column_id: "closed-cards" %>

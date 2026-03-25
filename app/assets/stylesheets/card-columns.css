@@ -55,6 +55,7 @@
     margin-inline: auto;
     max-inline-size: var(--main-width);
     outline: none;
+    overflow-anchor: none;
     overflow-x: auto;
     overflow-y: hidden;
     position: relative;
